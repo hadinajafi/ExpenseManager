@@ -5,9 +5,19 @@
  */
 package expensemanager;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TabPane;
+import javafx.scene.control.TableView;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -16,6 +26,34 @@ import javafx.fxml.Initializable;
  */
 public class MainLayoutController implements Initializable {
 
+    @FXML
+    private TabPane tabPane;
+    @FXML
+    private AnchorPane root;
+    @FXML
+    private TableView<?> accountTableView;
+    @FXML
+    private Button addNewAccountBtn;
+    @FXML
+    void addNewAccountBtnAction(ActionEvent event) {
+        AnchorPane root = null;
+        try {
+            //loading the fxml file
+            root = FXMLLoader.load(getClass().getResource("AddNewAccountLayout.fxml"));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        Scene scene = new Scene(root);
+        //loading the css file
+        //scene.getStylesheets().add(getClass().getResource("addnewtasklayout.css").toExternalForm());
+        Stage stage = new Stage();
+        stage.setTitle("Add New Task");
+        stage.setResizable(false);  //setting resizable to false.
+        stage.setMinWidth(566);
+        stage.setMinHeight(353);
+        stage.setScene(scene);
+        stage.show();
+    }
     /**
      * Initializes the controller class.
      * @param url
@@ -23,7 +61,7 @@ public class MainLayoutController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        tabPane.tabMinWidthProperty().bind(root.widthProperty().divide(tabPane.getTabs().size()).subtract(20));
     }    
     
 }
