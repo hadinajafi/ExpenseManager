@@ -9,13 +9,9 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -32,8 +28,8 @@ public class ExpenseManager extends Application {
             scene.getStylesheets().add(getClass().getResource("mainlayout.css").toExternalForm());
             primaryStage.setTitle("Expense Manager");
             primaryStage.setScene(scene);
-            primaryStage.setMinWidth(700);
-            primaryStage.setMinHeight(466);
+            primaryStage.setMinWidth(600);
+            primaryStage.setMinHeight(400);
             primaryStage.show();
         } catch (IOException ex) {
             ex.printStackTrace();
