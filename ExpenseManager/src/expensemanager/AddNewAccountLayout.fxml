@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -27,8 +28,8 @@
             <Label text="Initialized Balance" GridPane.rowIndex="1" />
             <Label text="Description" GridPane.rowIndex="2" />
             <TextField fx:id="nameField" prefWidth="243.0" promptText="Name" GridPane.columnIndex="1" />
-            <TextField fx:id="initBalanceField" promptText="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <TextArea fx:id="descField" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Spinner fx:id="initBalanceField" editable="true" prefHeight="26.0" prefWidth="228.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
       <HBox alignment="CENTER_RIGHT" layoutX="328.0" layoutY="260.0" prefHeight="26.0" prefWidth="144.0" spacing="5.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="328.0" AnchorPane.rightAnchor="54.0" AnchorPane.topAnchor="260.0">
