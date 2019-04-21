@@ -2,11 +2,14 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" fx:id="root" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="expensemanager.MainLayoutController">
@@ -14,7 +17,7 @@
         <URL value="@mainlayout.css" />
     </stylesheets>
    <children>
-      <TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <TabPane fx:id="tabPane" layoutY="40.0" prefHeight="360.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0">
         <tabs>
           <Tab text="Recent">
             <content>
@@ -36,10 +39,23 @@
           </Tab>
             <Tab text="Weekly View">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TreeTableView fx:id="weeklyViewTreeTable" prefHeight="330.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TreeTableColumn prefWidth="75.0" text="Week Date" />
+                            <TreeTableColumn prefWidth="75.0" text="Value" />
+                              <TreeTableColumn prefWidth="90.0" text="Category" />
+                              <TreeTableColumn prefWidth="120.0" text="Details" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TreeTableView>
+                     </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Yearly View">
+            <Tab text="Monthly View">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
               </content>
@@ -77,5 +93,12 @@
             </Tab>
         </tabs>
       </TabPane>
+      <AnchorPane prefHeight="40.0" prefWidth="600.0" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="statusLabel" alignment="CENTER_RIGHT" layoutX="413.0" layoutY="12.0" prefHeight="16.0" prefWidth="179.0" text="Status here" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="413.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="12.0" />
+            <Button fx:id="addNewActivityBtn" layoutX="8.0" layoutY="7.0" mnemonicParsing="false" onAction="#addNewActivityBtnAction" text="Add New" />
+            <Label fx:id="todayDateLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="237.0" layoutY="12.0" text="Today Date" textAlignment="CENTER" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="237.0" AnchorPane.rightAnchor="237.0" AnchorPane.topAnchor="12.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
